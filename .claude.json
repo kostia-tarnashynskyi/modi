@@ -1,0 +1,175 @@
+{
+  "mcpServers": {
+    "modi-development": {
+      "command": "uv",
+      "args": ["run", "python", "-m", "mcp.server.modi"],
+      "cwd": "/home/kostiat/Projects/modi",
+      "env": {
+        "MODI_PROJECT_ROOT": "/home/kostiat/Projects/modi",
+        "MODI_ENV": "development"
+      }
+    }
+  },
+  "projectContext": {
+    "name": "Modi Dependency Injection Framework",
+    "type": "python-library",
+    "version": "0.1.0",
+    "description": "A powerful and intuitive dependency injection framework for Python, inspired by NestJS",
+    "repository": "https://github.com/kostiatynkoval/modi",
+    "documentation": "https://kostiatynkoval.github.io/modi/",
+    "primaryLanguage": "python",
+    "minPythonVersion": "3.9",
+    "frameworks": ["fastapi", "flask", "faststream"],
+    "tools": ["uv", "just", "invoke", "ruff", "mypy", "pytest", "jekyll"],
+    "architecture": {
+      "type": "dependency-injection",
+      "patterns": ["decorator", "module", "container"],
+      "core": "src/modi/",
+      "tests": "tests/",
+      "docs": "docs/",
+      "examples": "examples/",
+      "scripts": "scripts/invoke/"
+    }
+  },
+  "aiWorkflow": {
+    "codeReview": {
+      "enabled": true,
+      "agent": ".claude/agents/code-reviewer.md",
+      "autoChecks": ["lint", "test", "security"],
+      "qualityGates": {
+        "testCoverage": 95,
+        "typeHints": "required",
+        "documentation": "required"
+      }
+    },
+    "documentation": {
+      "enabled": true,
+      "autoGenerate": ["api", "examples"],
+      "validation": ["links", "syntax", "examples"],
+      "formats": ["jekyll", "markdown", "docstrings"]
+    }
+  },
+  "developmentCommands": {
+    "setup": "just setup",
+    "test": "just test",
+    "lint": "just lint",
+    "format": "just format",
+    "build": "just build",
+    "docs": "just docs-serve",
+    "ci": "just ci",
+    "release": "just release"
+  },
+  "qualityStandards": {
+    "typeHints": {
+      "required": true,
+      "coverage": 100,
+      "strict": true
+    },
+    "testing": {
+      "coverage": {
+        "minimum": 95,
+        "target": 98
+      },
+      "types": ["unit", "integration", "performance"],
+      "frameworks": ["pytest"]
+    },
+    "documentation": {
+      "apiDocs": "required",
+      "userGuides": "required",
+      "examples": "required",
+      "changelog": "required"
+    },
+    "codeStyle": {
+      "formatter": "ruff",
+      "linter": "ruff",
+      "typeChecker": "mypy",
+      "lineLength": 88,
+      "imports": "sorted"
+    }
+  },
+  "integrationTargets": [
+    {
+      "name": "FastAPI",
+      "type": "web-framework",
+      "features": ["dependency-injection", "async-support"],
+      "examples": "examples/fastapi/"
+    },
+    {
+      "name": "Flask",
+      "type": "web-framework", 
+      "features": ["dependency-injection", "blueprints"],
+      "examples": "examples/flask/"
+    },
+    {
+      "name": "FastStream",
+      "type": "streaming-framework",
+      "features": ["dependency-injection", "event-driven"],
+      "examples": "examples/faststream/"
+    },
+    {
+      "name": "CLI",
+      "type": "application-type",
+      "features": ["dependency-injection", "command-line"],
+      "examples": "examples/cli/"
+    }
+  ],
+  "keyFiles": {
+    "entryPoints": [
+      "src/modi/__init__.py",
+      "invokefile.py",
+      "justfile"
+    ],
+    "core": [
+      "src/modi/core/container.py",
+      "src/modi/decorators/injectable.py",
+      "src/modi/modules/module.py"
+    ],
+    "configuration": [
+      "pyproject.toml",
+      "tasks.py",
+      "CLAUDE.md"
+    ],
+    "documentation": [
+      "README.md",
+      "docs/_config.yml",
+      "docs/index.md"
+    ]
+  },
+  "commonPatterns": {
+    "serviceDefinition": {
+      "pattern": "@injectable()",
+      "example": "src/modi/decorators/injectable.py"
+    },
+    "moduleDefinition": {
+      "pattern": "@module(providers=[...])",
+      "example": "examples/basic/app.py"
+    },
+    "dependencyInjection": {
+      "pattern": "def __init__(self, service: IService)",
+      "example": "examples/basic/services.py"
+    },
+    "frameworkIntegration": {
+      "pattern": "Depends(ModiDependency(Service))",
+      "example": "examples/fastapi/main.py"
+    }
+  },
+  "troubleshooting": {
+    "commonProblems": [
+      {
+        "problem": "Circular dependency",
+        "solution": "Use Protocol interfaces or event-driven patterns",
+        "example": "docs/guides/circular-dependencies.md"
+      },
+      {
+        "problem": "Type hints not working",
+        "solution": "Check Python version (3.9+) and type annotations",
+        "example": "docs/guides/type-safety.md"
+      },
+      {
+        "problem": "Service not found",
+        "solution": "Ensure service is registered in module providers",
+        "example": "docs/guides/modules.md"
+      }
+    ]
+  }
+}

@@ -154,6 +154,17 @@ venv.bak/
 # mkdocs documentation
 /site
 
+# Jekyll/Ruby documentation (not used)
+Gemfile
+Gemfile.lock
+_site/
+_config.yml
+_includes/
+_layouts/
+.bundle/
+vendor/
+.gem/
+
 # mypy
 .mypy_cache/
 .dmypy.json
@@ -186,7 +197,7 @@ cython_debug/
 #  that can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
 #  and can be added to the global gitignore or merged into this file. However, if you prefer, 
 #  you could uncomment the following to ignore the entire vscode folder
-# .vscode/
+.vscode/
 
 # Ruff stuff:
 .ruff_cache/
@@ -205,3 +216,6 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+.pytest_cache
+.python-version
+
