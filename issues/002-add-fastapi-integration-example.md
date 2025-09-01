@@ -45,7 +45,7 @@
 
 ## Labels
 
-`documentation` `component: examples` `priority: medium` `status: triage`
+`documentation` `component: examples` `priority: medium` `status: approved`
 
 ---
 
