@@ -38,29 +38,6 @@ classifiers = [
 requires-python = ">=3.9"
 dependencies = []
 
-[project.optional-dependencies]
-dev = [
-    "pytest>=7.0",
-    "pytest-cov>=4.0",
-    "black>=23.0",
-    "ruff>=0.1.0",
-    "mypy>=1.0",
-    "pre-commit>=3.0",
-    "invoke>=2.0",
-    "bump2version>=1.0",
-    "bandit>=1.7",
-    "safety>=2.0",
-]
-docs = [
-    "mkdocs>=1.4",
-    "mkdocs-material>=9.0",
-]
-test = [
-    "pytest>=7.0",
-    "pytest-cov>=4.0",
-    "pytest-watch>=4.2",
-]
-
 [project.urls]
 Homepage = "https://github.com/kostia-tarnashynskyi/modi"
 Documentation = "https://github.com/kostia-tarnashynskyi/modi#readme"
@@ -74,7 +51,6 @@ packages = ["src/modi"]
 [tool.hatch.build.targets.sdist]
 include = [
     "/src",
-    "/tests",
     "/README.md",
     "/LICENSE",
     "/CHANGELOG.md",
@@ -148,6 +124,13 @@ exclude_lines = [
 
 [dependency-groups]
 dev = [
-    "invoke>=2.2.0",
-    "pytest>=8.4.1",
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0",
+    "pre-commit>=3.0",
+    "twine>=6.0",
+    "bandit>=1.7",
+    "safety>=2.0",
 ]

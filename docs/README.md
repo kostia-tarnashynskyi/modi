@@ -44,25 +44,25 @@ pip install modi
 ## 🔧 Quick Example
 
 ```python
-from modi import Module, Injectable, Inject
+from modi import injectable, module, AppFactory
 
-@Injectable()
+@injectable()
 class DatabaseService:
     def get_data(self): return "data"
 
-@Injectable()
+@injectable()
 class UserService:
-    def __init__(self, db: Inject[DatabaseService]):
+    def __init__(self, db: DatabaseService):
         self.db = db
     
     def get_users(self): return self.db.get_data()
 
-@Module(providers=[DatabaseService, UserService])
+@module(providers=[DatabaseService, UserService])
 class AppModule: pass
 
 # Use in your application
-container = AppModule.create_container()
-user_service = container.get(UserService)
+app = AppFactory.create(AppModule)
+user_service = app.get(UserService)
 ```
 
 ## 🤝 Contributing

@@ -1,11 +1,12 @@
-from modi.di.decorators import injectable, module, Scope
-from modi.di.container import ModuleContainer
-from modi.di.application import AppFactory
+from modi.decorators import injectable, module, Scope
+from modi.container import ModuleContainer
+from modi.application import ModiApplication, AppFactory
 
 __all__ = [
     "injectable",
     "module", 
     "Scope",
     "ModuleContainer",
+    "ModiApplication",
     "AppFactory"
 ]
