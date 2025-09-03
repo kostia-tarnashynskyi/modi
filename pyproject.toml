@@ -9,10 +9,10 @@ description = "A lightweight dependency injection framework for Python, inspired
 readme = "README.md"
 license = "MIT"
 authors = [
-    { name = "Kostia Tarnashynskyi", email = "kostia.tarnashynskyi@example.com" },
+    { name = "Kostia Tarnashynskyi", email = "kostia.tarnashynskyi@gmail.com" },
 ]
 maintainers = [
-    { name = "Kostia Tarnashynskyi", email = "kostia.tarnashynskyi@example.com" },
+    { name = "Kostia Tarnashynskyi", email = "kostia.tarnashynskyi@gmail.com" },
 ]
 keywords = [
     "dependency-injection",
@@ -36,10 +36,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Application Frameworks",
 ]
 requires-python = ">=3.9"
-dependencies = [
-    "invoke>=2.2.0",
-    "just>=0.8.165",
-]
+dependencies = []
 
 [project.optional-dependencies]
 dev = [
